@@ -64,6 +64,7 @@ public class Servlet3 extends HttpServlet {
     /**
      * Processa la richiesta Head
      */
+    @Override
     protected void doHead(
         HttpServletRequest request,
         HttpServletResponse response
@@ -74,6 +75,7 @@ public class Servlet3 extends HttpServlet {
     /**
      * Processa la richiesta Get
      */
+    @Override
     protected void doGet(
         HttpServletRequest request,
         HttpServletResponse response
@@ -84,6 +86,7 @@ public class Servlet3 extends HttpServlet {
     /**
      * Processa la richiesta Post
      */
+    @Override
     protected void doPost(
         HttpServletRequest request,
         HttpServletResponse response
@@ -94,6 +97,7 @@ public class Servlet3 extends HttpServlet {
     /**
      * Processa la richiesta Put
      */
+    @Override
     protected void doPut(
         HttpServletRequest request,
         HttpServletResponse response
@@ -104,6 +108,7 @@ public class Servlet3 extends HttpServlet {
     /**
      * Processa la richiesta Delete
      */
+    @Override
     protected void doDelete(
         HttpServletRequest request,
         HttpServletResponse response
@@ -114,6 +119,7 @@ public class Servlet3 extends HttpServlet {
     /**
      * Processa la richiesta Options
      */
+    @Override
     protected void doOptions(
         HttpServletRequest request,
         HttpServletResponse response
@@ -124,6 +130,7 @@ public class Servlet3 extends HttpServlet {
     /**
      * Processa la richiesta Trace
      */
+    @Override
     protected void doTrace(
         HttpServletRequest request,
         HttpServletResponse response
@@ -136,6 +143,7 @@ public class Servlet3 extends HttpServlet {
      * questa pare che non passi da service(..., ...)
      * quindi dovrebbe chiamarla direttamente l'engine del web server
      */
+    @Override
     protected long getLastModified(
         HttpServletRequest request
     ) {
@@ -146,6 +154,7 @@ public class Servlet3 extends HttpServlet {
     /**
      * Processa la richiesta all'internal service handler
      */
+    @Override
     protected void service(
         HttpServletRequest request,
         HttpServletResponse response
@@ -193,6 +202,7 @@ public class Servlet3 extends HttpServlet {
     /**
      * Processa la richiesta al public service handler
      */
+    @Override
     public void service(
         ServletRequest request,
         ServletResponse response
