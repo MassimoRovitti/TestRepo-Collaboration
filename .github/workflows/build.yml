@@ -25,15 +25,23 @@ jobs:
     permissions:
       contents: read
       pull-requests: write
-    uses: ./.github/workflows/reusable__build_with_maven.yml
-    with:
-      java-version: '24.0.1'
-      java-distribution:  'temurin'
-      file-pom: './TestinaDiServlets/pom.xml'
-      environment-message: 'Trying to use Main Environment'
-      environment-secret: 'Trying to use Secret from Main Environment but GitHub Environment is not working.'
-    secrets:
-      token: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - name: Build on Main branch
+        uses: ./.github/workflows/reusable__build_with_maven.yml
+        with:
+          java-version: '24.0.1'
+          java-distribution:  'temurin'
+          file-pom: './TestinaDiServlets/pom.xml'
+          environment-message: 'Trying to use Main Environment'
+          environment-secret: 'Trying to use Secret from Main Environment but GitHub Environment is not working.'
+        secrets:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Archive Main artifacts for download
+        uses: actions/upload-artifact@v4
+        with:
+          path: /home/runner/work/TestRepo-Collaboration/Output/TestaDiServlets/main/
+      - name: List Main Artifacts
+        run: ls /home/runner/work/TestRepo-Collaboration/Output/TestaDiServlets/main/
 
 # Build on branch 'test' using environment 'Configure Test Environment'
   call-workflow-build-test:
@@ -41,15 +49,23 @@ jobs:
     permissions:
       contents: read
       pull-requests: write
-    uses: ./.github/workflows/reusable__build_with_maven.yml
-    with:
-      java-version: '24.0.1'
-      java-distribution:  'temurin'
-      file-pom: './TestinaDiServlets/pom.xml'
-      environment-message: 'Trying to use Test Environment'
-      environment-secret: 'Trying to use Secret from Test Environment but GitHub Environment is not working.'
-    secrets:
-      token: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - name: Build on Test branch
+        uses: ./.github/workflows/reusable__build_with_maven.yml
+        with:
+          java-version: '24.0.1'
+          java-distribution:  'temurin'
+          file-pom: './TestinaDiServlets/pom.xml'
+          environment-message: 'Trying to use Test Environment'
+          environment-secret: 'Trying to use Secret from Test Environment but GitHub Environment is not working.'
+        secrets:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Archive Test artifacts for download
+        uses: actions/upload-artifact@v4
+        with:
+          path: /home/runner/work/TestRepo-Collaboration/Output/TestaDiServlets/test/
+      - name: List Test Artifacts
+        run: ls /home/runner/work/TestRepo-Collaboration/Output/TestaDiServlets/test/
 
 # Build on branch 'dev' using environment 'Configure Dev Environment'
   call-workflow-build-dev:
@@ -57,12 +73,20 @@ jobs:
     permissions:
       contents: read
       pull-requests: write
-    uses: ./.github/workflows/reusable__build_with_maven.yml
-    with:
-      java-version: '24.0.1'
-      java-distribution:  'temurin'
-      file-pom: './TestinaDiServlets/pom.xml'
-      environment-message: 'Trying to use Dev Environment but GitHub Environment is not working.'
-      environment-secret: 'Trying to use Secret from Dev Environment but GitHub Environment is not working.'
-    secrets:
-      token: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - name: Build on Dev branch
+        uses: ./.github/workflows/reusable__build_with_maven.yml
+        with:
+          java-version: '24.0.1'
+          java-distribution:  'temurin'
+          file-pom: './TestinaDiServlets/pom.xml'
+          environment-message: 'Trying to use Dev Environment but GitHub Environment is not working.'
+          environment-secret: 'Trying to use Secret from Dev Environment but GitHub Environment is not working.'
+        secrets:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Archive Dev artifacts for download
+        uses: actions/upload-artifact@v4
+        with:
+          path: /home/runner/work/TestRepo-Collaboration/Output/TestaDiServlets/dev/
+      - name: List Dev Artifacts
+        run: ls /home/runner/work/TestRepo-Collaboration/Output/TestaDiServlets/dev/
