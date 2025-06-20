@@ -22,7 +22,7 @@ import javax.servlet.http.HttpSession;
  *
  */
 public class Servlet1 extends HttpServlet {
-    private static final String MASSIMO1 = "Massimo1";
+    private static final String METHOD_MASSIMO1 = "Massimo1";
 
     /*
      **********************************
