@@ -20,7 +20,7 @@ env:
 jobs:
 
 # Build on branch 'main' using environment 'Configure Main Environment'
-  call-workflow-build-prod:
+  call-workflow-build-main:
     if: github.ref == 'refs/heads/main'
     permissions:
       contents: read
@@ -52,7 +52,7 @@ jobs:
       token: ${{ secrets.GITHUB_TOKEN }}
 
 # Build on branch 'dev' using environment 'Configure Dev Environment'
-  call-workflow-build-env:
+  call-workflow-build-dev:
     if: github.ref == 'refs/heads/dev'
     permissions:
       contents: read
