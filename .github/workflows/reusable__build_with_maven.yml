@@ -17,9 +17,6 @@ on:
       java-distribution:
         required: true
         type: string
-      file-pom:
-        required: true
-        type: string
       environment-message:
         required: true
         type: string
@@ -37,11 +34,11 @@ jobs:
     steps:
     - uses: actions/checkout@v4
       with:
-        repo-token: ${{ secrets.token }}
+        token: ${{ secrets.token }}
     - name: Show banner message
       run: echo "Message from above - ${{ inputs.environment-message }}"
     - name: Show a second message
-      run: echo "using this confidential value - [${{ inputs.environment-secret }}]"
+      run: echo "using thjis confidential value - [${{ inputs.environment-secret }}]"
     - name: Set up JDK
       uses: actions/setup-java@v4
       with:
@@ -49,7 +46,7 @@ jobs:
         distribution: ${{ inputs.java-distribution }}
         cache: maven
     - name: Build with Maven
-      run: mvn -B package --file ${{ inputs.file-pom }}
+      run: mvn -B package --file pom.xml
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
     - name: Update dependency graph
