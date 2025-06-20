@@ -167,7 +167,7 @@ public class Servlet3 extends HttpServlet {
         customLog("Sono il metodo protected void service(HttpServletRequest, HttpServletResponse) [" + method + "] di Servlet3");
         
         switch (method) {
-            case METHOD_HEAD :
+            case this.METHOD_HEAD :
                 doHead(request, response);
                 break;
             case METHOD_GET :
