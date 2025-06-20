@@ -148,7 +148,7 @@ public class Servlet3 extends HttpServlet {
 	 */
 	protected void service(
 		HttpServletRequest request,
-		HttpServletResponse resp
+		HttpServletResponse response
 	) {
 		/*
 			Ignoriamo il metodo standard cosi ci facciamo le richieste nostre
