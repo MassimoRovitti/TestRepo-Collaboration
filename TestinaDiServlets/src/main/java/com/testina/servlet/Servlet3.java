@@ -146,7 +146,7 @@ public class Servlet3 extends HttpServlet {
     @Override
     protected long getLastModified(
         HttpServletRequest request
-    ) {
+    ) throws IOException {
         doMyOp(request, null);
         return 0;
     }
