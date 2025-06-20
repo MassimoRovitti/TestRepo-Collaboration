@@ -20,7 +20,7 @@ import javax.servlet.http.HttpSession;
  *
  */
 public class Servlet1 extends HttpServlet {
-	private static const String MASSIMO1 = "Massimo1";
+	private static final String MASSIMO1 = "Massimo1";
 
 	/*
 	 **********************************
