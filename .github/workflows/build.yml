@@ -15,6 +15,7 @@ env:
 # Java target
   USE_THIS_JAVA_VERSION: '24.0.1'
   USE_THIS_JAVA_DISTRIBUTION: 'temurin'
+  USE_THIS_FILE_POM: './TestinaDiServer/pom.xml'
 
 jobs:
 
@@ -28,6 +29,7 @@ jobs:
     with:
       java-version: '24.0.1'
       java-distribution:  'temurin'
+      file-pom: './TestinaDiServer/pom.xml'
       environment-message: 'Trying to use Main Environment'
       environment-secret: 'Trying to use Secret from Main Environment but GitHub Environment is not working.'
     secrets:
@@ -43,6 +45,7 @@ jobs:
     with:
       java-version: '24.0.1'
       java-distribution:  'temurin'
+      file-pom: './TestinaDiServer/pom.xml'
       environment-message: 'Trying to use Test Environment'
       environment-secret: 'Trying to use Secret from Test Environment but GitHub Environment is not working.'
     secrets:
@@ -58,6 +61,7 @@ jobs:
     with:
       java-version: '24.0.1'
       java-distribution:  'temurin'
+      file-pom: './TestinaDiServer/pom.xml'
       environment-message: 'Trying to use Dev Environment but GitHub Environment is not working.'
       environment-secret: 'Trying to use Secret from Dev Environment but GitHub Environment is not working.'
     secrets:
