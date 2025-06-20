@@ -26,7 +26,6 @@ jobs:
       pull-requests: write
     uses: ./.github/workflows/reusable__build_with_maven.yml
     with:
-      environment: 'Configure Main Environment'
       java-version: '24'
       java-distribution:  'tamarin'
       environment-message: 'Trying to use Main Environment'
@@ -42,7 +41,6 @@ jobs:
       pull-requests: write
     uses: ./.github/workflows/reusable__build_with_maven.yml
     with:
-      environment: 'Configure Test Environment'
       java-version: '24'
       java-distribution:  'tamarin'
       environment-message: 'Trying to use Test Environment'
@@ -58,7 +56,6 @@ jobs:
       pull-requests: write
     uses: ./.github/workflows/reusable__build_with_maven.yml
     with:
-      environment: 'Configure Dev Environment'
       java-version: '24'
       java-distribution:  'tamarin'
       environment-message: 'Trying to use Dev Environment but GitHub Environment is not working.'
