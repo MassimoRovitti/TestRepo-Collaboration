@@ -1,4 +1,4 @@
-name: Java Continuos Disintegration :-) building with Maven on branch [test]
+name: Building with Maven on branch [test]
 
 on:
   workflow_dispatch:
