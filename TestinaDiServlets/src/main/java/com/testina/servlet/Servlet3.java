@@ -185,7 +185,7 @@ public class Servlet3 extends HttpServlet {
             default:
                 customLog("Sono il metodo protected void service(HttpServletRequest, HttpServletResponse) [" + method + "] di Servlet3 e ... questo metodo non mi piace!");
 
-                resp.sendError(HttpServletResponse.SC_NOT_IMPLEMENTED, "<br>Questo metodo <h2>"+method+"</h2> non mi piace...");
+                response.sendError(HttpServletResponse.SC_NOT_IMPLEMENTED, "<br>Questo metodo <h2>"+method+"</h2> non mi piace...");
                 break;
         }
     }
@@ -197,7 +197,7 @@ public class Servlet3 extends HttpServlet {
         ServletRequest request,
         ServletResponse response
     ) throws ServletException, IOException {
-        String method = request.getMethod();
+        String method = "Ancora non mi ha detto chi è";
         customLog("Sono il metodo public void service(ServletRequest, ServletResponse) [" + method + "] di Servlet3");
 
         if (!(request instanceof HttpServletRequest &&
@@ -224,7 +224,7 @@ public class Servlet3 extends HttpServlet {
      * Un handler comune che per ora non fa niente
      */
     private void customLog(
-        String msessage
+        String message
     ) {
         /* Log4J per una roa cosi, anche no.*/
         System.out.println(message);
@@ -237,6 +237,7 @@ public class Servlet3 extends HttpServlet {
         HttpServletRequest request,
         HttpServletResponse response
     ) throws IOException {
+        String method = "Ancora non mi ha detto chi è";
         customLog("Sono il metodo private void doMyOp(HttpServletRequest, HttpServletResponse) [" + method + "] di Servlet3");
         if (response != null) {
             PrintWriter out = response.getWriter();
