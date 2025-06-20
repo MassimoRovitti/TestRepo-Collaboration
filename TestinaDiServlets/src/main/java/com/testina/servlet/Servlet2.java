@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 /**
  * Implementiamo per finta la classe Servlet2
  */
+
 /**
  * @author IoIo e TuTu
  *
@@ -224,10 +225,10 @@ public class Servlet2 extends HttpServlet {
 		HttpServletRequest request,
 		HttpServletResponse response
 	) throws IOException {
-		PrintWriter out = response.getWriter();
-
 		customLog("Sono il metodo private void doMyOp(HttpServletRequest, HttpServletResponse) [" + method + "] di Servlet2");
-
-		out.write("<html><body><h4>Hai chiamato il metodo [" +  + "] di Servlet2!</h4></body></html>");
+		if (response != NULL) {
+			PrintWriter out = response.getWriter();
+			out.write("<html><body><h4>Hai chiamato il metodo [" +  + "] di Servlet12</h4></body></html>");
+		}
 	}
 }
