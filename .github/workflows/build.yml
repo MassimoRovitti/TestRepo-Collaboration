@@ -1,92 +1,38 @@
 # This workflow will build a Java project with Maven, and cache/restore any dependencies to improve the workflow execution time
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-java-with-maven
 
-# This workflow uses actions that are not certified by GitHub.
-# They are provided by a third-party and are governed by
-# separate terms of service, privacy policy, and support
-# documentation.
-
-name: Java Continuos Disintegration :-) building with Maven
+name: Java Continuos Disintegration :-) building with Maven on branch [main]
 
 on:
+  workflow_dispatch:
   push:
-
-env:
-# Java target
-  USE_THIS_JAVA_VERSION: '24.0.1'
-  USE_THIS_JAVA_DISTRIBUTION: 'temurin'
-  USE_THIS_FILE_POM: './TestinaDiServlets/pom.xml'
+    branches: [ main ]
 
 jobs:
+  build:
+    runs-on: ubuntu-latest
 
-# Build on branch 'main' using environment 'Configure Main Environment'
-  call-workflow-build-main:
-    if: github.ref == 'refs/heads/main'
-    permissions:
-      contents: read
-      pull-requests: write
     steps:
-      - name: Build on Main branch
-        uses: ./.github/workflows/reusable__build_with_maven.yml
-        with:
-          java-version: '24.0.1'
-          java-distribution:  'temurin'
-          file-pom: './TestinaDiServlets/pom.xml'
-          environment-message: 'Trying to use Main Environment'
-          environment-secret: 'Trying to use Secret from Main Environment but GitHub Environment is not working.'
-        secrets:
-          token: ${{ secrets.GITHUB_TOKEN }}
+    - uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+    - name: Show banner message 1
+      run: echo "********************************"
+    - name: Show banner message 2
+      run: echo "** Building from branch [main]
+    - name: Show banner message 3
+      run: echo "********************************"
+    - name: Set up JDK [24.0.1] [temurin]
+      uses: actions/setup-java@v4
+      with:
+        java-version: '24.0.1'
+        distribution: 'temurin'
+        cache: maven
+    - name: Build with Maven
+      run: mvn -B package --file './TestinaDiServlets/pom.xml'
       - name: Archive Main artifacts for download
         uses: actions/upload-artifact@v4
         with:
           path: /home/runner/work/TestRepo-Collaboration/Output/TestaDiServlets/main/
       - name: List Main Artifacts
         run: ls /home/runner/work/TestRepo-Collaboration/Output/TestaDiServlets/main/
-
-# Build on branch 'test' using environment 'Configure Test Environment'
-  call-workflow-build-test:
-    if: github.ref == 'refs/heads/test'
-    permissions:
-      contents: read
-      pull-requests: write
-    steps:
-      - name: Build on Test branch
-        uses: ./.github/workflows/reusable__build_with_maven.yml
-        with:
-          java-version: '24.0.1'
-          java-distribution:  'temurin'
-          file-pom: './TestinaDiServlets/pom.xml'
-          environment-message: 'Trying to use Test Environment'
-          environment-secret: 'Trying to use Secret from Test Environment but GitHub Environment is not working.'
-        secrets:
-          token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Archive Test artifacts for download
-        uses: actions/upload-artifact@v4
-        with:
-          path: /home/runner/work/TestRepo-Collaboration/Output/TestaDiServlets/test/
-      - name: List Test Artifacts
-        run: ls /home/runner/work/TestRepo-Collaboration/Output/TestaDiServlets/test/
-
-# Build on branch 'dev' using environment 'Configure Dev Environment'
-  call-workflow-build-dev:
-    if: github.ref == 'refs/heads/dev'
-    permissions:
-      contents: read
-      pull-requests: write
-    steps:
-      - name: Build on Dev branch
-        uses: ./.github/workflows/reusable__build_with_maven.yml
-        with:
-          java-version: '24.0.1'
-          java-distribution:  'temurin'
-          file-pom: './TestinaDiServlets/pom.xml'
-          environment-message: 'Trying to use Dev Environment but GitHub Environment is not working.'
-          environment-secret: 'Trying to use Secret from Dev Environment but GitHub Environment is not working.'
-        secrets:
-          token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Archive Dev artifacts for download
-        uses: actions/upload-artifact@v4
-        with:
-          path: /home/runner/work/TestRepo-Collaboration/Output/TestaDiServlets/dev/
-      - name: List Dev Artifacts
-        run: ls /home/runner/work/TestRepo-Collaboration/Output/TestaDiServlets/dev/
