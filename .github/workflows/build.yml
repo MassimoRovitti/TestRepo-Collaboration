@@ -27,9 +27,9 @@ jobs:
     uses: ./.github/workflows/reusable__build_with_maven.yml
     with:
       environment: 'Main Environment'
-      java-version: ${{ $USE_THIS_JAVA_VERSION }}
-      java-distribution:  ${{ $USE_THIS_JAVA_DISTRIBUTION }}
-      environment-message: ${{ $ENV_DUMMY_VAR }}
+      java-version: '24'
+      java-distribution:  'tamarin'
+      environment-message: ${{ env.ENV_DUMMY_VAR }}
       environment-secret: ${{ secrets.ENV_DUMMY_SECRET }}
     secrets:
       token: ${{ secrets.GITHUB_TOKEN }}
@@ -43,9 +43,9 @@ jobs:
     uses: ./.github/workflows/reusable__build_with_maven.yml
     with:
       environment: 'Test Environment'
-      java-version: ${{ $USE_THIS_JAVA_VERSION }}
-      java-distribution:  ${{ $USE_THIS_JAVA_DISTRIBUTION }}
-      environment-message: ${{ $ENV_DUMMY_VAR }}
+      java-version: '24'
+      java-distribution:  'tamarin'
+      environment-message: ${{ env.ENV_DUMMY_VAR }}
       environment-secret: ${{ secrets.ENV_DUMMY_SECRET }}
     secrets:
       token: ${{ secrets.GITHUB_TOKEN }}
@@ -59,9 +59,9 @@ jobs:
     uses: ./.github/workflows/reusable__build_with_maven.yml
     with:
       environment: 'Dev Environment'
-      java-version: ${{ $USE_THIS_JAVA_VERSION }}
-      java-distribution:  ${{ $USE_THIS_JAVA_DISTRIBUTION }}
-      environment-message: ${{ $ENV_DUMMY_VAR }}
+      java-version: '24'
+      java-distribution:  'tamarin'
+      environment-message: ${{ env.ENV_DUMMY_VAR }}
       environment-secret: ${{ secrets.ENV_DUMMY_SECRET }}
     secrets:
       token: ${{ secrets.GITHUB_TOKEN }}
