@@ -226,7 +226,7 @@ public class Servlet3 extends HttpServlet {
     private void customLog(
         String message
     ) {
-        /* Log4J per una roa cosi, anche no.*/
+        /* Log4J per una cosa così, anche no.*/
         System.out.println(message);
     }
      

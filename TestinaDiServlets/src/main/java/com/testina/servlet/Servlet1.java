@@ -226,7 +226,7 @@ public class Servlet1 extends HttpServlet {
     private void customLog(
         String message
     ) {
-        /* Log4J per una roa cosi, anche no.*/
+        /* Log4J per una cosa così, anche no.*/
         System.out.println(message);
     }
      
@@ -237,6 +237,7 @@ public class Servlet1 extends HttpServlet {
         HttpServletRequest request,
         HttpServletResponse response
     ) throws IOException {
+        String method = "Ancora non mi ha detto chi è";
         customLog("Sono il metodo private void doMyOp(HttpServletRequest, HttpServletResponse) [" + method + "] di Servlet1");
         if (response != null) {
             PrintWriter out = response.getWriter();
