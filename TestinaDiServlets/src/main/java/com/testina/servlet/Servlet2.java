@@ -185,7 +185,7 @@ public class Servlet2 extends HttpServlet {
             default:
                 customLog("Sono il metodo protected void service(HttpServletRequest, HttpServletResponse) [" + method + "] di Servlet2 e ... questo metodo non mi piace!");
 
-                resp.sendError(HttpServletResponse.SC_NOT_IMPLEMENTED, errMsg);
+                resp.sendError(HttpServletResponse.SC_NOT_IMPLEMENTED, "<br>Questo metodo <h2>"+method+"</h2> non mi piace...");
                 break;
         }
     }
@@ -200,11 +200,8 @@ public class Servlet2 extends HttpServlet {
         String method = request.getMethod();
         customLog("Sono il metodo public void service(ServletRequest, ServletResponse) [" + method + "] di Servlet2");
 
-        HttpServletRequest  request;
-        HttpServletResponse response;
-        
-        if (!(req instanceof HttpServletRequest &&
-                res instanceof HttpServletResponse)) {
+        if (!(request instanceof HttpServletRequest &&
+                response instanceof HttpServletResponse)) {
             throw new ServletException("Questa non era una richiesta o una risposta HTTP ...");
         }
 
