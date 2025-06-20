@@ -20,11 +20,11 @@ jobs:
 
 # Build on branch 'main' using environment 'Main environment'
   call-workflow-build-prod:
-   if: github.ref == 'refs/heads/main'
-   permissions:
+    if: github.ref == 'refs/heads/main'
+    permissions:
       contents: read
       pull-requests: write
-    uses: .github/workflows/reusable/build/build_with_maven.yml
+    uses: ./.github/workflows/reusable/build/build_with_maven.yml
     with:
       environment: 'Main Environment'
       java-version: ${{ env.USE_THIS_JAVA_VERSION }}
@@ -36,11 +36,11 @@ jobs:
 
 # Build on branch 'test' using environment 'Test environment'
   call-workflow-build-test:
-   if: github.ref == 'refs/heads/test'
-   permissions:
+    if: github.ref == 'refs/heads/test'
+    permissions:
       contents: read
       pull-requests: write
-    uses: .github/workflows/reusable/build/build_with_maven.yml
+    uses: ./.github/workflows/reusable/build/build_with_maven.yml
     with:
       environment: 'Test Environment'
       java-version: ${{ env.USE_THIS_JAVA_VERSION }}
@@ -52,11 +52,11 @@ jobs:
 
 # Build on branch 'dev' using environment 'Dev environment'
   call-workflow-build-env:
-   if: github.ref == 'refs/heads/dev'
-   permissions:
+    if: github.ref == 'refs/heads/dev'
+    permissions:
       contents: read
       pull-requests: write
-    uses: .github/workflows/reusable/build/build_with_maven.yml
+    uses: ./.github/workflows/reusable/build/build_with_maven.yml
     with:
       environment: 'Dev Environment'
       java-version: ${{ env.USE_THIS_JAVA_VERSION }}
