@@ -19,7 +19,7 @@ jobs:
     - name: Show banner message 1
       run: echo "********************************"
     - name: Show banner message 2
-      run: echo "** Building from branch [main]
+      run: echo "** Building from branch [main]  "
     - name: Show banner message 3
       run: echo "********************************"
     - name: Set up JDK [24.0.1] [temurin]
