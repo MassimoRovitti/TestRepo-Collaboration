@@ -139,7 +139,7 @@ public class Servlet1 extends HttpServlet {
     protected long getLastModified(
         HttpServletRequest request
     ) {
-        doMyOp(request, customLogl);
+        doMyOp(request, response);
         return 0;
     }
     
@@ -155,7 +155,7 @@ public class Servlet1 extends HttpServlet {
             // super.service(request, response);
         */
         String method = request.getMethod();
-        DoLog("Sono il metodo protected void service(HttpServletRequest, HttpServletResponse) [" + method + "] di Servlet1");
+        customLog("Sono il metodo protected void service(HttpServletRequest, HttpServletResponse) [" + method + "] di Servlet1");
         
         switch (method) {
             case METHOD_HEAD :
@@ -241,7 +241,7 @@ public class Servlet1 extends HttpServlet {
         HttpServletResponse response
     ) throws IOException {
         customLog("Sono il metodo private void doMyOp(HttpServletRequest, HttpServletResponse) [" + method + "] di Servlet1");
-        if (response != customLogl) {
+        if (response != null) {
             PrintWriter out = response.getWriter();
             out.write("<html><body><h4>Hai chiamato il metodo [" +  + "] di Servlet1!</h4></body></html>");
         }
