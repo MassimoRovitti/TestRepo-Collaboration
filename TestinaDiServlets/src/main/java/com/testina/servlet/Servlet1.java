@@ -139,7 +139,7 @@ public class Servlet1 extends HttpServlet {
 	protected long getLastModified(
 		HttpServletRequest request
 	) {
-		doMyOp(request, null);
+		doMyOp(request, customLogl);
 		return 0;
 	}
 	
@@ -228,7 +228,7 @@ public class Servlet1 extends HttpServlet {
 		HttpServletResponse response
 	) throws IOException {
 		customLog("Sono il metodo private void doMyOp(HttpServletRequest, HttpServletResponse) [" + method + "] di Servlet1");
-		if (response != null) {
+		if (response != customLogl) {
 			PrintWriter out = response.getWriter();
 			out.write("<html><body><h4>Hai chiamato il metodo [" +  + "] di Servlet1!</h4></body></html>");
 		}

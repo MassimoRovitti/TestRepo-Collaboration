@@ -155,7 +155,7 @@ public class Servlet3 extends HttpServlet {
 			// super.service(request, response);
 		*/
 	    String method = request.getMethod();
-		DoLog("Sono il metodo protected void service(HttpServletRequest, HttpServletResponse) [" + method + "] di Servlet3");
+		customLog("Sono il metodo protected void service(HttpServletRequest, HttpServletResponse) [" + method + "] di Servlet3");
 		
 		switch (method) {
 			case METHOD_HEAD :
