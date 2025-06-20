@@ -33,6 +33,7 @@ jobs:
     - name: Archive Main artifacts for download
       uses: actions/upload-artifact@v4
       with:
+        name: TestinaDiServlers.war
         path: /home/runner/work/TestRepo-Collaboration/TestRepo-Collaboration/TestinaDiServlets/target/
 
   deploy-main:
@@ -42,6 +43,7 @@ jobs:
     - name: Download Main Artifact
       uses: actions/download-artifact@v4
       with:
+        name: TestinaDiServlers.war
         path: /home/runner/work/TestRepo-Collaboration/Output/TestaDiServlets/main/
     - name: List Main Artifacts
       run: ls /home/runner/work/TestRepo-Collaboration/Output/TestaDiServlets/main/
