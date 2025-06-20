@@ -241,7 +241,7 @@ public class Servlet2 extends HttpServlet {
         customLog("Sono il metodo private void doMyOp(HttpServletRequest, HttpServletResponse) [" + method + "] di Servlet2");
         if (response != null) {
             PrintWriter out = response.getWriter();
-            out.write("<html><body><h4>Hai chiamato il metodo [" +  + "] di Servlet12</h4></body></html>");
+            out.write("<html><body><h4>Hai chiamato il metodo [" + method + "] di Servlet12</h4></body></html>");
         }
     }
 }
