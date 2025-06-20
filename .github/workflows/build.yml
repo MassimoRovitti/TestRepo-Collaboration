@@ -9,9 +9,9 @@ on:
     branches: [ main ]
 
 jobs:
+
   build:
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v4
       with:
@@ -19,7 +19,7 @@ jobs:
     - name: Show banner message 1
       run: echo "********************************"
     - name: Show banner message 2
-      run: echo "** Building from branch [main]  "
+      run: echo "** Building from branch [main]
     - name: Show banner message 3
       run: echo "********************************"
     - name: Set up JDK [24.0.1] [temurin]
@@ -30,9 +30,19 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn -B package --file './TestinaDiServlets/pom.xml'
-    - name: Archive Main artifacts for download
-      uses: actions/upload-artifact@v4
-      with:
-        path: /home/runner/work/TestRepo-Collaboration/Output/TestaDiServlets/main/
-    - name: List Main Artifacts
-      run: ls /home/runner/work/TestRepo-Collaboration/Output/TestaDiServlets/main/
+      - name: Archive Main artifacts for download
+        uses: actions/upload-artifact@v4
+        with:
+          path: /home/runner/work/TestRepo-Collaboration/TestRepo-Collaboration/TestinaDiServlets/target/
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Download Main Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: maven-web-application
+          path: /home/runner/work/TestRepo-Collaboration/Output/TestaDiServlets/main/
+      - name: List Main Artifacts
+        run: ls /home/runner/work/TestRepo-Collaboration/Output/TestaDiServlets/main/
