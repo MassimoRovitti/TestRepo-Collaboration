@@ -166,25 +166,25 @@ public class Servlet1 extends HttpServlet {
         customLog("Sono il metodo protected void service(HttpServletRequest, HttpServletResponse) [" + method + "] di Servlet1");
         
         switch (method) {
-            case METHOD_HEAD :
+            case "HEAD" :
                 doHead(request, response);
                 break;
-            case METHOD_GET :
+            case "GET" :
                 doGet(request, response);
                 break;
-            case METHOD_POST :
+            case "POST" :
                 doPost(request, response);
                 break;
-            case METHOD_PUT :
+            case "PUT" :
                 doPut(request, response);
                 break;
-            case METHOD_DELETE :
+            case "DELETE" :
                 doDelete(request, response);
                 break;
-            case METHOD_OPTIONS :
+            case "OPTIONS" :
                 doDelete(request, response);
                 break;
-            case METHOD_TRACE :
+            case "TRACE" :
                 doDelete(request, response);
                 break;
             case METHOD_MASSIMO1 :

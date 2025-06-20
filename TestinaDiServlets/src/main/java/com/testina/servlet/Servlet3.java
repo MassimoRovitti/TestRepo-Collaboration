@@ -170,22 +170,22 @@ public class Servlet3 extends HttpServlet {
             case "HEAD" :
                 doHead(request, response);
                 break;
-            case "GET :
+            case "GET" :
                 doGet(request, response);
                 break;
-            case METHOD_POST :
+            case "POST" :
                 doPost(request, response);
                 break;
-            case METHOD_PUT :
+            case "PUT" :
                 doPut(request, response);
                 break;
-            case METHOD_DELETE :
+            case "DELETE" :
                 doDelete(request, response);
                 break;
-            case METHOD_OPTIONS :
+            case "OPTIONS" :
                 doDelete(request, response);
                 break;
-            case METHOD_TRACE :
+            case "TRACE" :
                 doDelete(request, response);
                 break;
             case METHOD_MASSIMO3 :
