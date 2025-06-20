@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app
+  id="WebApp_9"
+  version="2.4"
+  xmlns="http://java.sun.com/xml/ns/j2ee"
+  xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+
+  <display-name>Esempi di Chiama la Servlet  da  di Servlets</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+  </welcome-file-list>
+
+  <!-- Servlet1-->
+  <servlet>
+  	<servlet-name>Servlet1Name</servlet-name>
+  	<display-name>Servlet1DisplayName</display-name>
+  	<description>Call the Chiama la Servlet 1 dal package [Testina di Servlets]</description>
+  	<servlet-class>com.testina.servlet.Servlet1</servlet-class>
+  	<load-on-startup>0</load-on-startup>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>Servlet1Name</servlet-name>
+  	<url-pattern>/Testina1</url-pattern>
+  </servlet-mapping>
+
+  <!-- Servlet2-->
+  <servlet>
+  	<servlet-name>Servlet2Name</servlet-name>
+  	<display-name>Servlet2DisplayName</display-name>
+  	<description>Call the Chiama la Servlet 2 dal package [Testina di Servlets]</description>
+  	<servlet-class>com.testina.servlet.Servlet2</servlet-class>
+  	<load-on-startup>0</load-on-startup>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>Servlet2Name</servlet-name>
+  	<url-pattern>/Testina2</url-pattern>
+  </servlet-mapping>
+
+  <!-- Servlet3-->
+  <servlet>
+  	<servlet-name>Servlet3Name</servlet-name>
+  	<display-name>Servlet3DisplayName</display-name>
+  	<description>Call the Chiama la Servlet 3 dal package [Testina di Servlets]</description>
+  	<servlet-class>com.testina.servlet.Servlet3</servlet-class>
+  	<load-on-startup>0</load-on-startup>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>Servlet3Name</servlet-name>
+  	<url-pattern>/Testina3</url-pattern>
+  </servlet-mapping>
+ 
+</web-app>

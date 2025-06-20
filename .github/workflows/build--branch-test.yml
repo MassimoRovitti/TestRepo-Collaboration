@@ -1,0 +1,46 @@
+name: Building with Maven on branch [test]
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ test ]
+
+jobs:
+
+  build-test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+    - name: Show banner message 1
+      run: echo "********************************"
+    - name: Show banner message 2
+      run: echo "** Building from branch [test]  "
+    - name: Show banner message 3
+      run: echo "********************************"
+    - name: Set up JDK [24.0.1] [temurin]
+      uses: actions/setup-java@v4
+      with:
+        java-version: '24.0.1'
+        distribution: 'temurin'
+        cache: maven
+    - name: Build with Maven
+      run: mvn -B package --file './TestinaDiServlets/pom.xml'
+    - name: Archive Test artifacts for download
+      uses: actions/upload-artifact@v4
+      with:
+        name: TestinaDiServlers.war
+        path: /home/runner/work/TestRepo-Collaboration/TestRepo-Collaboration/TestinaDiServlets/target/
+
+  deploy-test:
+    runs-on: ubuntu-latest
+    needs: build-test
+    steps:
+    - name: Download Test Artifact
+      uses: actions/download-artifact@v4
+      with:
+        name: TestinaDiServlers.war
+        path: /home/runner/work/TestRepo-Collaboration/Output/TestaDiServlets/test/
+    - name: List Test Artifacts
+      run: ls /home/runner/work/TestRepo-Collaboration/Output/TestaDiServlets/test/
