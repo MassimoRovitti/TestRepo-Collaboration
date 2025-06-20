@@ -10,7 +10,7 @@ on:
 
 jobs:
 
-  build:
+  build-main:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
@@ -35,14 +35,13 @@ jobs:
       with:
         path: /home/runner/work/TestRepo-Collaboration/TestRepo-Collaboration/TestinaDiServlets/target/
 
-  deploy:
+  deploy-main:
     runs-on: ubuntu-latest
-    needs: build
+    needs: build-main
     steps:
     - name: Download Main Artifact
       uses: actions/download-artifact@v4
       with:
-        name: maven-web-application
         path: /home/runner/work/TestRepo-Collaboration/Output/TestaDiServlets/main/
     - name: List Main Artifacts
       run: ls /home/runner/work/TestRepo-Collaboration/Output/TestaDiServlets/main/
