@@ -146,8 +146,6 @@ public class Servlet3 extends HttpServlet {
     @Override
     protected long getLastModified(
         HttpServletRequest request
-    protected long getLastModified(
-        HttpServletRequest request
     ) {
         try {
             doMyOp(request, null);
