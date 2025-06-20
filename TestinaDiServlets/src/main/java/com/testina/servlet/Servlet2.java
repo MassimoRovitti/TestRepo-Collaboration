@@ -145,8 +145,12 @@ public class Servlet2 extends HttpServlet {
      */
     protected long getLastModified(
         HttpServletRequest request
-    ) throws IOException {
-        doMyOp(request, null);
+    ) {
+        try {
+            doMyOp(request, null);
+        } catch (IOException e) {
+          customLog("Eccezione in getLastModfied di Servlet2");
+        }
         return 0;
     }
     

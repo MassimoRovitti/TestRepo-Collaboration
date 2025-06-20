@@ -146,8 +146,14 @@ public class Servlet3 extends HttpServlet {
     @Override
     protected long getLastModified(
         HttpServletRequest request
-    ) throws IOException {
-        doMyOp(request, null);
+    protected long getLastModified(
+        HttpServletRequest request
+    ) {
+        try {
+            doMyOp(request, null);
+        } catch (IOException e) {
+          customLog("Eccezione in getLastModfied di Servlet3");
+        }
         return 0;
     }
     
